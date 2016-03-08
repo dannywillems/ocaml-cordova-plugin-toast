@@ -14,6 +14,10 @@ Android and WP8. It's great for showing a non intrusive native notification
 which is guaranteed always in the viewport of the browser.
 ```
 
+## How to use it ?
+
+To do
+
 ## ! BE CAREFUL !
 
 The device plugin creates a new object called *window.plugins.toast*, but the object is
@@ -39,3 +43,4 @@ let _ =
   Dom.addEventListener Dom_html.document (Dom.Event.make "deviceready")
   (Dom_html.handler on_device_ready) Js._false
 ```
+
