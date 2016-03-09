@@ -4,7 +4,7 @@ Binding in OCaml to [EddyVerbrugen Toast
 plugin](https://github.com/EddyVerbruggen/Toast-PhoneGap-Plugin) using js_of_ocaml.
 
 [Example
-application](https://github.com/dannywillems/ocaml-cordova-plugin-toast)
+application](https://github.com/dannywillems/ocaml-cordova-plugin-toast-example)
 
 ## What does the toast plugin do ?
 
