@@ -46,7 +46,7 @@ documentation on js_of_ocaml). If we did, *window.plugins.toast* will be set to 
 because the *window.plugins.toast* object doesn't exist when we create the variable.
 
 Instead of that, we provide a **function** of type unit -> Toast.toast,
-name *t*.
+named *t*.
 
 You need to get the return value of this function in the *deviceready*
 event handler.
