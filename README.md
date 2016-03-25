@@ -14,9 +14,27 @@ Android and WP8. It's great for showing a non intrusive native notification
 which is guaranteed always in the viewport of the browser.
 ```
 
+## Repository branches and tags
+
+We are migrating bindings from
+[js_of_ocaml](https://github.com/ocsigen/js_of_ocaml) (low level bindings) to
+[gen_js_api](https://github.com/lexifi/gen_js_api) (high level bindings).
+
+The gen_js_api binding allows to use *pure* ocaml types (you don't have to use
+the ## syntax from js_of_ocaml or Js.string type but only # and string type).
+
+The js_of_ocaml version is available in the tags
+[*js_of_ocaml*](https://github.com/dannywillems/ocaml-cordova-plugin-toast/tree/js_of_ocaml)
+but we **recommend** to use the gen_js_api version which is the master branch.
+
+## TODO
+
+The gen_js_api binding doesn't allow to create toast styling while the
+[*js_of_ocaml*](https://github.com/dannywillems/ocaml-cordova-plugin-toast/tree/js_of_ocaml) does.
+
 ## How to use it ?
 
-To do
+TODO
 
 ## ! BE CAREFUL !
 
