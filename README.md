@@ -27,11 +27,6 @@ The js_of_ocaml version is available in the tags
 [*js_of_ocaml*](https://github.com/dannywillems/ocaml-cordova-plugin-toast/tree/js_of_ocaml)
 but we **recommend** to use the gen_js_api version which is the master branch.
 
-## TODO
-
-The gen_js_api binding doesn't allow to create toast styling while the
-[*js_of_ocaml*](https://github.com/dannywillems/ocaml-cordova-plugin-toast/tree/js_of_ocaml) does.
-
 ## How to use it ?
 
 TODO
