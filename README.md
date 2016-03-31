@@ -35,7 +35,7 @@ event handler.
 So, use
 
 ```OCaml
-let on_device_ready =
+let on_device_ready _ =
   let t = Toast.toast () in
   (* Some code *)
 
