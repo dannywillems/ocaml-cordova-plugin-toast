@@ -36,19 +36,14 @@ TODO
 The device plugin creates a new object called *window.plugins.toast*, but the object is
 available when the *deviceready* event is handled.
 
-We don't provide a *window.plugins.toast* variable in this plugin (as said in the official
-documentation on js_of_ocaml). If we did, *window.plugins.toast* will be set to **undefined**
-because the *window.plugins.toast* object doesn't exist when we create the variable.
-
-Instead of that, we provide a **function** of type unit -> Toast.toast,
-named *t*.
+We provide a function *Toast.t* of type unit -> Toast.toast.
 
 You need to get the return value of this function in the *deviceready*
 event handler.
-So, use
+So, use (with js_of_ocaml)
 
 ```OCaml
-let on_device_ready =
+let on_device_ready _ =
   let t = Toast.t () in
   (* Some code *)
   Js._false
