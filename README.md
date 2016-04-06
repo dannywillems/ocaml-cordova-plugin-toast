@@ -1,5 +1,7 @@
 # ocaml-cordova-plugin-toast
 
+* gen_js_api (master branch): [![Build Status](https://travis-ci.org/dannywillems/ocaml-cordova-plugin-toast.svg?branch=master)](https://travis-ci.org/dannywillems/ocaml-cordova-plugin-toast)
+
 Binding in OCaml to [EddyVerbrugen Toast
 plugin](https://github.com/EddyVerbruggen/Toast-PhoneGap-Plugin) using js_of_ocaml.
 
