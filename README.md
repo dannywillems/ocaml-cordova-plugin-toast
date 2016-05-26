@@ -57,25 +57,3 @@ cordova plugin add cordova-plugin-x-toast
 
 See the official documentation:
 [EddyVerbrugen Cordova_toast plugin](https://github.com/EddyVerbruggen/Cordova_toast-PhoneGap-Plugin)
-## ! BE CAREFUL !
-
-The device plugin creates a new object called *window.plugins.toast*, but the object is
-available when the *deviceready* event is handled.
-
-We provide a function *Cordova_toast.t* of type unit -> Cordova_toast.toast.
-
-You need to get the return value of this function in the *deviceready*
-event handler.
-So, use (with js_of_ocaml)
-
-```OCaml
-let on_device_ready _ =
-  let t = Cordova_toast.t () in
-  (* Some code *)
-  Js._false
-
-let _ =
-  Dom.addEventListener Dom_html.document (Dom.Event.make "deviceready")
-  (Dom_html.handler on_device_ready) Js._false
-```
-
