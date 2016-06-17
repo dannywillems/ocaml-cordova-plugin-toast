@@ -4,7 +4,7 @@
 [![Build Status](https://travis-ci.org/dannywillems/ocaml-cordova-plugin-toast.svg?branch=master)](https://travis-ci.org/dannywillems/ocaml-cordova-plugin-toast)
 
 Binding to [EddyVerbrugen Cordova_toast
-plugin](https://github.com/EddyVerbruggen/Cordova_toast-PhoneGap-Plugin).
+plugin](https://github.com/EddyVerbruggen/Toast-PhoneGap-Plugin).
 
 [Example
 application](https://github.com/dannywillems/ocaml-cordova-plugin-toast-example)
@@ -16,19 +16,6 @@ This plugin allows you to show a native Cordova_toast (a little text popup) on i
 Android and WP8. It's great for showing a non intrusive native notification
 which is guaranteed always in the viewport of the browser.
 ```
-
-## Repository branches and tags
-
-We are migrating bindings from
-[js_of_ocaml](https://github.com/ocsigen/js_of_ocaml) (low level bindings) to
-[gen_js_api](https://github.com/lexifi/gen_js_api) (high level bindings).
-
-The gen_js_api binding allows to use *pure* ocaml types (you don't have to use
-the ## syntax from js_of_ocaml or Js.string type but only # and string type).
-
-The js_of_ocaml version is available in the tags
-[*js_of_ocaml*](https://github.com/dannywillems/ocaml-cordova-plugin-toast/tree/js_of_ocaml)
-but we **recommend** to use the gen_js_api version which is the master branch.
 
 ## How to install and compile your project by using this plugin ?
 
@@ -52,8 +39,7 @@ Don't forget to install the cordova plugin toast with
 cordova plugin add cordova-plugin-x-toast
 ```
 
-
 ## How to use it ?
 
 See the official documentation:
-[EddyVerbrugen Cordova_toast plugin](https://github.com/EddyVerbruggen/Cordova_toast-PhoneGap-Plugin)
+[EddyVerbrugen Cordova_toast plugin](https://github.com/EddyVerbruggen/Toast-PhoneGap-Plugin)
