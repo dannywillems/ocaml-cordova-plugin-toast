@@ -38,11 +38,12 @@ type position =
 type options = private Ojs.t
 
 val create_options :
-  ?message:(string [@js.default ""])        ->
-  ?duration:(duration [@js.default Long])   ->
-  ?position:(position [@js.default Bottom]) ->
-  ?add_pixels_y:int                         ->
-  unit                                      ->
+  ?message:string                                                 ->
+  ?duration:(duration [@js.default Long])                         ->
+  ?position:(position [@js.default Bottom])                       ->
+  ?add_pixels_y:(int [@js.default 0])                             ->
+  ?styling:(styling_toast [@js.default create_styling_toast ()])  ->
+  unit                                                            ->
   options
 [@@js.builder]
 (* -------------------------------------------------------------------------- *)
