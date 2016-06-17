@@ -1,13 +1,4 @@
-class styling_toast : Ojs.t ->
-  object
-    inherit Ojs.obj
-    method opacity              : float
-    method background_color     : string
-    method text_color           : string
-    method corner_radius        : int
-    method horizontal_padding   : int
-    method vertical_padding     : int
-  end
+type styling_toast = private Ojs.t
 
 val create_styling_toast :
   ?opacity:(float [@js.default 0.8])                  ->
@@ -33,16 +24,6 @@ type duration =
   | Short [@js "short"]
   | Long [@js "long"]
   [@@js.enum]
-
-[@@@js.stop]
-val short : duration
-val long  : duration
-[@@@js.start]
-
-[@@@js.implem
-let short = Short
-let long  = Long
-]
 (* -------------------- *)
 
 (* -------------------- *)
@@ -51,29 +32,10 @@ type position =
   | Center [@js "center"]
   | Long   [@js "long"]
   [@@js.enum]
-
-[@@@js.stop]
-val bottom  : position
-val center  : position
-val long    : position
-[@@@js.start]
-
-[@@@js.implem
-let bottom  = Bottom
-let center  = Center
-let long    = Long
-]
 (* -------------------------------------------------------------------------- *)
 
 (* -------------------------------------------------------------------------- *)
-class options : Ojs.t ->
-  object
-    inherit Ojs.obj
-    method message              : string
-    method duration             : string
-    method position             : string
-    method add_pixels_y         : int
-  end
+type options = private Ojs.t
 
 val create_options :
   ?message:(string [@js.default ""])        ->
@@ -87,70 +49,63 @@ val create_options :
 
 (* -------------------------------------------------------------------------- *)
 (* Binding to toast object *)
-class toast : Ojs.t ->
-  object
-    inherit Ojs.obj
-    (* ---------------------------------------------------------------------- *)
-    method show_short_top       : string -> unit
-    method show_short_top_cb    : string          -> (* message *)
-                                  (unit -> unit)  -> (* success_cb *)
-                                  (unit -> unit)  -> (* error_cb *)
-                                  unit
-    [@@js.call "showShortTop"]
-    (* ---------------------------------------------------------------------- *)
+(* ---------------------------------------------------------------------- *)
+val show_short_top :
+  string                                                -> (* message *)
+  ?succ_cb:((unit -> unit) [@js.default fun () -> ()])  -> (* success_cb *)
+  ?error_cb:((unit -> unit) [@js.default fun () -> ()]) -> (* error_cb *)
+  unit                                                  ->
+  unit
+[@@js.global "window.plugins.toast.showShortTop"]
 
-    (* ---------------------------------------------------------------------- *)
-    method show_short_center    : string -> unit
-    method show_short_center_cb : string          -> (* message *)
-                                  (unit -> unit)  -> (* success_cb *)
-                                  (unit -> unit)  -> (* error_cb *)
-                                  unit
-    [@@js.call "showShortCenter"]
-    (* ---------------------------------------------------------------------- *)
+val show_short_center :
+  string                                                -> (* message *)
+  ?succ_cb:((unit -> unit) [@js.default fun () -> ()])  -> (* success_cb *)
+  ?error_cb:((unit -> unit) [@js.default fun () -> ()]) -> (* error_cb *)
+  unit                                                  ->
+  unit
+[@@js.global "window.plugins.toast.showShortCenter"]
 
-    (* ---------------------------------------------------------------------- *)
-    method show_short_bottom    : string -> unit
-    method show_short_bottom_cb : string          -> (* message *)
-                                  (unit -> unit)  -> (* success_cb *)
-                                  (unit -> unit)  -> (* error_cb *)
-                                  unit
-    [@@js.call "showShortBottom"]
-    (* ---------------------------------------------------------------------- *)
+val show_short_bottom :
+  string                                                -> (* message *)
+  ?succ_cb:((unit -> unit) [@js.default fun () -> ()])  -> (* success_cb *)
+  ?error_cb:((unit -> unit) [@js.default fun () -> ()]) -> (* error_cb *)
+  unit                                                  ->
+  unit
+[@@js.global "window.plugins.toast.showShortBottom"]
 
-    (* ---------------------------------------------------------------------- *)
-    method show_long_top        : string -> unit
-    method show_long_top_cb     : string          -> (* message *)
-                                  (unit -> unit)  -> (* success_cb *)
-                                  (unit -> unit)  -> (* error_cb *)
-                                  unit
-    [@@js.call "showLongTop"]
-    (* ---------------------------------------------------------------------- *)
+val show_long_top :
+  string                                                -> (* message *)
+  ?succ_cb:((unit -> unit) [@js.default fun () -> ()])  -> (* success_cb *)
+  ?error_cb:((unit -> unit) [@js.default fun () -> ()]) -> (* error_cb *)
+  unit                                                  ->
+  unit
+[@@js.global "window.plugins.toast.showShortTop"]
 
-    (* ---------------------------------------------------------------------- *)
-    method show_long_center     : string -> unit
-    method show_long_center_cb  : string          -> (* message *)
-                                  (unit -> unit)  -> (* success_cb *)
-                                  (unit -> unit)  -> (* error_cb *)
-                                  unit
-    [@@js.call "showLongCenter"]
-    (* ---------------------------------------------------------------------- *)
+val show_long_center :
+  string                                                -> (* message *)
+  ?succ_cb:((unit -> unit) [@js.default fun () -> ()])  -> (* success_cb *)
+  ?error_cb:((unit -> unit) [@js.default fun () -> ()]) -> (* error_cb *)
+  unit                                                  ->
+  unit
+[@@js.global "window.plugins.toast.showShortTop"]
 
-    (* ---------------------------------------------------------------------- *)
-    method show_long_bottom     : string -> unit
-    method show_long_bottom_cb  : string          -> (* message *)
-                                  (unit -> unit)  -> (* success_cb *)
-                                  (unit -> unit)  -> (* error_cb *)
-                                  unit
-    [@@js.call "showLongBottom"]
-    (* ---------------------------------------------------------------------- *)
+val show_long_bottom :
+  string                                                -> (* message *)
+  ?succ_cb:((unit -> unit) [@js.default fun () -> ()])  -> (* success_cb *)
+  ?error_cb:((unit -> unit) [@js.default fun () -> ()]) -> (* error_cb *)
+  unit                                                  ->
+  unit
+[@@js.global "window.plugins.toast.showLongBottom"]
 
-    (* ---------------------------------------------------------------------- *)
-    method hide                 : unit
-    (* ---------------------------------------------------------------------- *)
-  end
-(* -------------------------------------------------------------------------- *)
+val show_with_options :
+  ?options:(options [@js.default create_options ()])    ->
+  ?succ_cb:((unit -> unit) [@js.default fun () -> ()])  -> (* success_cb *)
+  ?error_cb:((unit -> unit) [@js.default fun () -> ()]) -> (* error_cb *)
+  unit                                                  ->
+  unit
+[@@js.global "window.plugins.toast.showWithOptions"]
 
-(* -------------------------------------------------------------------------- *)
-val t : unit -> toast
-[@@js.get "window.plugins.toast"]
+val hide : unit -> unit
+[@@js.global "window.plugins.toast.hide"]
 (* -------------------------------------------------------------------------- *)
